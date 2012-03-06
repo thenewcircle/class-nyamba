@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -28,6 +30,25 @@ public class StatusActivity extends Activity implements OnClickListener {
 		buttonUpdate.setOnClickListener(this);
 	}
 
+	// --- Menu Callbacks
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item_prefs:
+
+			return true;
+		default:
+			return false;
+		}
+	}
+
 	@Override
 	public void onClick(View view) {
 		String status = editStatus.getText().toString();
@@ -44,6 +65,9 @@ public class StatusActivity extends Activity implements OnClickListener {
 		protected Integer doInBackground(String... statuses) {
 			// Post to twitter
 			try {
+				System.setProperty("http.proxyHost", "my.proxyhost.com");
+				System.setProperty("http.proxyPort", "1234");
+
 				Twitter twitter = new Twitter("student", "password");
 				twitter.setAPIRootUrl("http://yamba.marakana.com/api");
 				twitter.setStatus(statuses[0]);

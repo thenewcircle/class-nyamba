@@ -7,4 +7,6 @@
     <string name="status_hint">Enter your status update</string>
     <string name="status_success">Successfully posted</string>
     <string name="status_failed">Failed to post</string>
+    <string name="preferences">Preferences</string>
+    <string name="prefs">Prefs</string>
 </resources>
