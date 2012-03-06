@@ -9,4 +9,8 @@
     <string name="status_failed">Failed to post</string>
     <string name="preferences">Preferences</string>
     <string name="prefs">Prefs</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="server">Server API</string>
+    <string name="status_enter_login">Please enter your login info</string>
 </resources>
