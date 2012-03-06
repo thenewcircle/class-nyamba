@@ -47,6 +47,9 @@ public class StatusActivity extends Activity implements OnClickListener {
 		case R.id.item_prefs:
 			startActivity(new Intent(this, PrefsActivity.class));
 			return true;
+		case R.id.item_about:
+			startActivity(new Intent(this, AboutActivity.class));
+			return true;
 		default:
 			return false;
 		}
