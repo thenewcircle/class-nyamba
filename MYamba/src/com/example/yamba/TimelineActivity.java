@@ -12,11 +12,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 
 public class TimelineActivity extends ListActivity {
 	static final String TAG = TimelineActivity.class.getSimpleName();
-	private ArrayAdapter<Status> adapter;
+	private TimelineAdapter adapter;
 	private TimelineReceiver receiver;
 
 	@Override
@@ -24,7 +23,7 @@ public class TimelineActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		// Create the adapter
-		adapter = new ArrayAdapter<Status>(this, android.R.layout.simple_list_item_1);
+		adapter = new TimelineAdapter(this, android.R.layout.simple_list_item_1);
 		setListAdapter(adapter);
 		
 		receiver = new TimelineReceiver();
