@@ -4,10 +4,8 @@ import winterwell.jtwitter.Twitter;
 import winterwell.jtwitter.TwitterException;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -72,23 +70,10 @@ public class StatusActivity extends Activity implements OnClickListener {
 		/** Runs on separate, non-UI thread. */
 		@Override
 		protected Integer doInBackground(String... statuses) {
-			SharedPreferences prefs = PreferenceManager
-					.getDefaultSharedPreferences(getApplicationContext());
-			String username = prefs.getString("username", null);
-			String password = prefs.getString("password", null);
-			String server = prefs.getString("server", null);
 
-			// Check if we have the login info
-			if (username == null || password == null || server == null) {
-				startActivity(new Intent(getApplicationContext(),
-						PrefsActivity.class));
-				return R.string.status_enter_login;
-			}
- 
 			// Post to twitter
 			try {
-				Twitter twitter = new Twitter(username, password);
-				twitter.setAPIRootUrl(server);
+				Twitter twitter = ((YambaApp) getApplication()).getTwitter();
 				twitter.setStatus(statuses[0]);
 				return R.string.status_success;
 			} catch (TwitterException e) {
