@@ -16,6 +16,7 @@
             android:label="@string/status_update" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -23,9 +24,10 @@
             android:name=".PrefsActivity"
             android:label="@string/preferences" >
         </activity>
-        <activity android:name=".AboutActivity">
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/about" >
         </activity>
-        
     </application>
 
 </manifest>
