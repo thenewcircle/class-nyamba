@@ -28,6 +28,8 @@
             android:name=".AboutActivity"
             android:label="@string/about" >
         </activity>
+        <service android:name=".RefreshService" >
+        </service>
     </application>
 
 </manifest>
