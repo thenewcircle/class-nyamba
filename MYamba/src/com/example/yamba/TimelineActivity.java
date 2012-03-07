@@ -23,7 +23,7 @@ public class TimelineActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		// Create the adapter
-		adapter = new TimelineAdapter(this, android.R.layout.simple_list_item_1);
+		adapter = new TimelineAdapter(this, android.R.layout.simple_list_item_2);
 		setListAdapter(adapter);
 		
 		receiver = new TimelineReceiver();
