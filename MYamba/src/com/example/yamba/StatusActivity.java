@@ -3,12 +3,9 @@ package com.example.yamba;
 import winterwell.jtwitter.Twitter;
 import winterwell.jtwitter.TwitterException;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -29,31 +26,6 @@ public class StatusActivity extends Activity implements OnClickListener {
 		editStatus = (EditText) findViewById(R.id.edit_status);
 		buttonUpdate = (Button) findViewById(R.id.button_update);
 		buttonUpdate.setOnClickListener(this);
-	}
-
-	// --- Menu Callbacks
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.menu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.item_prefs:
-			startActivity(new Intent(this, PrefsActivity.class));
-			return true;
-		case R.id.item_about:
-			startActivity(new Intent(this, AboutActivity.class));
-			return true;
-		case R.id.item_refresh:
-			startService(new Intent(this, RefreshService.class));
-			return true;
-		default:
-			return false;
-		}
 	}
 
 	@Override
