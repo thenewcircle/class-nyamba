@@ -24,6 +24,7 @@ public class RefreshService extends IntentService {
 		Twitter twitter = ((YambaApp)getApplication()).getTwitter();
 		try {
 			List<Status> timeline = twitter.getFriendsTimeline();
+			((YambaApp)getApplication()).setTimeline(timeline);
 			
 			// Iterate over the list
 			for(Status status: timeline) {

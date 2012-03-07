@@ -1,17 +1,24 @@
 package com.example.yamba;
 
+import winterwell.jtwitter.Twitter.Status;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 
 public class TimelineActivity extends ListActivity {
 	static final String TAG = TimelineActivity.class.getSimpleName();
-			
+	private ArrayAdapter<Status> adapter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		// Create the adapter
+		adapter = new ArrayAdapter<Status>(this, android.R.layout.simple_list_item_1);
+		setListAdapter(adapter);
 	}
 
 	// --- Menu Callbacks
