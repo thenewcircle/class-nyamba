@@ -10,10 +10,11 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class YambaApp extends Application {
+	public static final String YAMBA_NEW_TIMELINE = "com.example.action.NEW_TIMELINE";
 	static final String TAG = "YambaApp";
-	private Twitter twitter=null;
+	private Twitter twitter = null;
 	private List<Status> timeline;
-	
+
 	public List<Status> getTimeline() {
 		return timeline;
 	}
@@ -23,7 +24,7 @@ public class YambaApp extends Application {
 	}
 
 	public synchronized Twitter getTwitter() {
-		if(twitter==null) {
+		if (twitter == null) {
 			SharedPreferences prefs = PreferenceManager
 					.getDefaultSharedPreferences(getApplicationContext());
 			String username = prefs.getString("username", null);
